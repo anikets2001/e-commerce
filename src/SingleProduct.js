@@ -1,18 +1,12 @@
-import React from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
+const SingleProduct = () => {
+  return <Wrapper>SingleProduct</Wrapper>;
 
-const theme = {
-  colors: {
-    white: "#ffffff",
-    btn: "#ffffff",
-  },
-  media: {
-    mobile: "768px",
-  },
-};
+}
 
 const Wrapper = styled.section`
+height:100vh;
   .container {
     padding: 9rem 0;
   }
@@ -84,15 +78,5 @@ const Wrapper = styled.section`
     padding: 0 2.4rem;
   }
 `;
-
-const SingleProduct = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Wrapper>
-        <div>SingleProduct</div>
-      </Wrapper>
-    </ThemeProvider>
-  )
-}
 
 export default SingleProduct;

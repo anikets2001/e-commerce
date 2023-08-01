@@ -1,17 +1,8 @@
 import React from "react";
-import styled, { ThemeProvider } from "styled-components";
-
-const theme = {
-  colors: {
-    white: "#ffffff",
-    btn: "#ffffff",
-  },
-  media: {
-    mobile: "768px", 
-  },
-};
+import styled from "styled-components";
 
 const Wrapper = styled.section`
+  height:100vh;
   .grid-filter-column {
     grid-template-columns: 0.2fr 1fr;
   }
@@ -24,13 +15,9 @@ const Wrapper = styled.section`
 `;
 
 const Products = () => {
-  return (
-    <ThemeProvider theme={theme}>
-      <Wrapper>
-        <div>Products</div>
-      </Wrapper>
-    </ThemeProvider>
-  );
+  return <Wrapper>Products</Wrapper>;
 };
+
+
 
 export default Products;
