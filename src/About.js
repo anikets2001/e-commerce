@@ -1,15 +1,17 @@
 import React from 'react'
-import styled from "styled-components";
+import HeroSection from './Components/HeroSection';
 
-const Wrapper = styled.section`
-height:100vh;
-`;
+
 
 const About = () => {
+
+	const data= {
+		name:"shop",
+		type:"e-commerce",
+	}
+
 	return (
-		<Wrapper>
-		About Page		
-		</Wrapper>
+		<HeroSection data={data}/>
 	)
 }
 
