@@ -1,5 +1,7 @@
 import React from 'react'
 import HeroSection from './Components/HeroSection'
+import Services from './Components/Services'
+import Trusted from './Components/Trusted'
 
 
 
@@ -10,7 +12,12 @@ const Home = () => {
 	}
 
 	return (
+		<React.Fragment>
 		<HeroSection data={data}/>
+		<Services/>
+		<Trusted/>
+		</React.Fragment>
+
 	)
 }
 
