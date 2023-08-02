@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroSection from './Components/HeroSection';
+import HeroSection from '../Components/HeroSection';
 // import { useProductContext } from './Context/ProductContext';
 
 const About = () => {
@@ -8,7 +8,7 @@ const About = () => {
 	const data = {
 		name: "shop",
 		type: "e-commerce",
-}
+	}
 
 	return (
 		<React.Fragment>
