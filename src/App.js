@@ -10,6 +10,7 @@ import Cart from './Cart';
 import { GlobalStyle } from './GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 const App = () => {
 
@@ -46,6 +47,7 @@ const App = () => {
           <Route path='/singleProduct/:id' element={<SingleProduct />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
+        <Footer/>
       </Router>
     </ThemeProvider>
   )
