@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components'
-import Nav from './Nav';
+import Nav from './Navbar';
 
 const Header = () => {
 	return (
