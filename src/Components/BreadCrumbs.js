@@ -10,7 +10,7 @@ const BreadCrumbs = (props) => {
 	return (
 		<Wrapper>
 			<pre>
-				<NavLink to="/">
+				<NavLink to="/" className="nav-link">
 					home
 				</NavLink> {">"} {title}
 			</pre>
@@ -19,17 +19,18 @@ const BreadCrumbs = (props) => {
 }
 
 const Wrapper = styled.section`
-  height: 10rem;
-  background-color: ${({ theme }) => theme.colors.bg};
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 3.2rem;
-  padding-left: 1.2rem;
 
-  a {
-    font-size: 3.2rem;
-  }
+	.nav-link {
+		font-size:18px;
+		
+	}
+	height: 10rem;
+	background-color: ${({ theme }) => theme.colors.bg};
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 18px;
+	padding-left: 1.2rem;
 `;
 
 
