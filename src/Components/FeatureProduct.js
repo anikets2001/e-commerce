@@ -3,33 +3,60 @@ import styled from "styled-components";
 import Product from "./Product";
 
 const FeatureProduct = () => {
-	const { isLoading, featureProducts } = useProductContext();
+  const { isLoading, featureProducts } = useProductContext();
 
-	if (isLoading) {
-		return <Loader><h2> ......Loading</h2> </Loader>;
-	}
+  if (isLoading) {
+    return <Loader>
+        <span className="loader"></span>
+    </Loader>;
+  }
 
-	return (
-		<Wrapper className="section">
-			<div className="container">
-				<div className="intro-data">Check Now!</div>
-				<div className="common-heading">Our Feature Services</div>
-				<div className="grid grid-three-column">
-					{featureProducts.map((curElem) => {
-						return <Product key={curElem.id} {...curElem} />;
-					})}
-				</div>
-			</div>
-		</Wrapper>
-	);
+
+
+  return (
+    <Wrapper className="section">
+      <div className="container">
+        <div className="intro-data">Check Now!</div>
+        <div className="common-heading">Our Feature Services</div>
+        <div className="grid grid-three-column">
+          {featureProducts.map((curElem) => {
+            return <Product key={curElem.id} {...curElem} />;
+          })}
+        </div>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Loader = styled.div`
-	height:500px;
-	background-color: ${({ theme }) => theme.colors.bg};
-	display:flex;
-	align-items:center;
-	justify-content:center;
+    position:relative;
+    left:50%;
+    bottom:50px;
+    width: 80px;
+    height: 80px;
+  
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-top-color: #007bff; 
+    border-right-color: #007bff;
+    border-bottom-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 const Wrapper = styled.section`
