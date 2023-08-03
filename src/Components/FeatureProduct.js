@@ -6,9 +6,11 @@ const FeatureProduct = () => {
   const { isLoading, featureProducts } = useProductContext();
 
   if (isLoading) {
-    return <Loader>
+    return <LoaderWrapper>
+      <Loader className="loader-wrapper">
         <span className="loader"></span>
-    </Loader>;
+      </Loader>
+    </LoaderWrapper>;
   }
 
 
@@ -28,10 +30,18 @@ const FeatureProduct = () => {
   );
 };
 
+const LoaderWrapper = styled.div`
+  height:500px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background-color: ${({ theme }) => theme.colors.bg};
+
+`;
+
 const Loader = styled.div`
+
     position:relative;
-    left:50%;
-    bottom:50px;
     width: 80px;
     height: 80px;
   
