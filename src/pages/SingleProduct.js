@@ -2,12 +2,14 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { useProductContext } from "../Context/ProductContext";
+import PageNavigation from "../Components/PageNavigation";
 import MyImage from "../Components/MyImage";
 import { Container } from "../styles/Container";
 import FormatPrice from "../Helpers/FormatPrice";
 import { MdSecurity } from "react-icons/md";
 import { TbTruckDelivery, TbReplace } from "react-icons/tb";
-import BreadCrumbs from "../Components/BreadCrumbs";
+import Star from "../Components/Star";
+import AddToCart from "../Components/AddtoCart";
 
 const API = "https://api.pujakaitem.com/api/products";
 
@@ -35,16 +37,12 @@ const SingleProduct = () => {
   }, []);
 
   if (isSingleLoading) {
-    return <LoaderWrapper>
-      <Loader className="loader-wrapper">
-        <span className="loader"></span>
-      </Loader>
-    </LoaderWrapper>;
+    return <div className="page_loading">Loading.....</div>;
   }
 
   return (
     <Wrapper>
-      <BreadCrumbs title={name} />
+      <PageNavigation title={name} />
       <Container className="container">
         <div className="grid grid-two-column">
           {/* product Images  */}
@@ -55,8 +53,8 @@ const SingleProduct = () => {
           {/* product dAta  */}
           <div className="product-data">
             <h2>{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews} reviews</p>
+            <Star stars={stars} reviews={reviews} />
+
             <p className="product-data-price">
               MRP:
               <del>
@@ -101,46 +99,14 @@ const SingleProduct = () => {
                 Brand :<span> {company} </span>
               </p>
             </div>
+            <hr />
+            {stock > 0 && <AddToCart product={singleProduct} />}
           </div>
         </div>
       </Container>
     </Wrapper>
   );
 };
-
-const LoaderWrapper = styled.div`
-  height:500px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-`;
-
-const Loader = styled.div`
-
-    position:relative;
-    width: 80px;
-    height: 80px;
-  
-  .loader {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 5px solid transparent;
-    border-top-color: #007bff; 
-    border-right-color: #007bff;
-    border-bottom-color: #007bff;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-`;
 
 const Wrapper = styled.section`
   .container {
