@@ -37,7 +37,11 @@ const SingleProduct = () => {
   }, []);
 
   if (isSingleLoading) {
-    return <div className="page_loading">Loading.....</div>;
+    return <LoaderWrapper>
+      <Loader className="loader-wrapper">
+        <span className="loader"></span>
+      </Loader>
+    </LoaderWrapper>;
   }
 
   return (
@@ -107,6 +111,40 @@ const SingleProduct = () => {
     </Wrapper>
   );
 };
+
+const LoaderWrapper = styled.div`
+  height:500px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`;
+
+const Loader = styled.div`
+
+    position:relative;
+    width: 80px;
+    height: 80px;
+  
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid transparent;
+    border-top-color: #007bff; 
+    border-right-color: #007bff;
+    border-bottom-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;
 
 const Wrapper = styled.section`
   .container {
@@ -194,3 +232,4 @@ const Wrapper = styled.section`
 `;
 
 export default SingleProduct;
+
